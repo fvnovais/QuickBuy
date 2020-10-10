@@ -12,6 +12,7 @@ namespace QuickBuy.Web
     {
         public Startup(IConfiguration configuration)
         {
+            //Teste 1
             Configuration = configuration;
         }
 

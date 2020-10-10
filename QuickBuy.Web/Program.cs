@@ -14,6 +14,7 @@ namespace QuickBuy.Web
     {
         public static void Main(string[] args)
         {
+            //Teste 2
             CreateWebHostBuilder(args).Build().Run();
         }
 
