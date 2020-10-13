@@ -1,9 +1,7 @@
 ﻿using QuickBuy.Dominio.Entidades;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using QuickBuy.Repositorio.Repositorios;
 
-namespace QuickBuy.Repositorio.Repositorios
+namespace QuickBuy.Repositorio
 {
     public class Cliente
     {
