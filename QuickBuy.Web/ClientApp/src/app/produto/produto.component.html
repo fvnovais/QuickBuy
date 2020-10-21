@@ -1,0 +1,74 @@
+<div>
+  <form class="form-signin">
+    <h1 class="h4 mb-3 titulo">Cadastro Produto</h1>
+    <div class="alert alert-danger" role="alert" *ngIf="mensagem">
+      {{ mensagem }}
+    </div>
+    <label for="inputNome" class="sr-only"></label>
+    <input type="text" id="inputNome"
+           name="nomeProduto"
+           placeholder="Nome do Produto"
+           class="form-control mb-2 col-md-4"
+           [ngClass]="{
+            'is-invalid': nome.invalid && (nome.dirty || nome.toched),
+            'is-valid': nome.valid && (nome.dirty || nome.toched)
+           }"
+           [(ngModel)]="produto.nome"
+           #nome="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-2 text-left" *ngIf="nome.invalid && (nome.dirty || nome.toched)">
+      <div *ngIf="nome.errors.required">
+        *Campo nome é obrigatório
+      </div>
+    </div>
+
+    <input type="text" id="inputDecricao"
+           name="descricao"
+           placeholder="Descrição do Produto"
+           class="form-control mb-2 col-md-4"
+           [ngClass]="{
+            'is-invalid': descricao.invalid && (descricao.dirty || descricao.toched),
+            'is-valid': descricao.valid && (descricao.dirty || descricao.toched)
+           }"
+           [(ngModel)]="produto.descricao"
+           #descricao="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-2 text-left" *ngIf="descricao.invalid && (descricao.dirty || descricao.toched)">
+      <div *ngIf="descricao.errors.required">
+        *Campo descrição é obrigatório
+      </div>
+    </div>
+
+
+    <input type="number" id="inputPreco"
+           name="preco"
+           placeholder="Preço do Produto"
+           class="form-control mb-2 col-md-2"
+           [ngClass]="{
+            'is-invalid': preco.invalid && (preco.dirty || preco.toched),
+            'is-valid': preco.valid && (preco.dirty || preco.toched)
+           }"
+           [(ngModel)]="produto.preco"
+           #preco="ngModel"
+           required />
+
+    <div class="invalid-feedback mb-2 text-le ft" *ngIf="preco.invalid && (preco.dirty || preco.toched)">
+      <div *ngIf="preco.errors.required">
+        *Campo preço é obrigatório
+      </div>
+    </div>
+
+    <div class="input-group mb-2">
+      <div class="custom-file col-md-4">
+        <input type="file" class="custom-file-input" id="inputFile" (change)="inputChange($event.target.files)" />
+        <label for="inputFile" class="custom-file-label">Escolha uma foto</label>
+      </div>
+    </div>
+    <button class="btn btn-primary" (click)="cadastrar()" [disabled]="ativa_spinner">
+      <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+      Cadastrar
+    </button>
+  </form>
+</div>
